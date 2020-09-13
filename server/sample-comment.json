@@ -1,0 +1,18 @@
+{
+    "comments": {
+        "comment-1": {
+            "time": "time",
+            "content": "loved this article",
+            "likes": 2,
+            "dislikes": 1,
+            "replies": "comment-2"
+        },
+        "comment-2": {
+            "time": "time",
+            "content": "i don't agree with you, i hated this article",
+            "likes": 1,
+            "dislikes": 2,
+            "replies": ""
+        }
+    }
+}
