@@ -1,22 +1,22 @@
 {
-    "comments": {
-        "comment-1": {
-            "content": "loved this article",
-            "dislikes": 1,
-            "id": "comment-1",
-            "likes": 1,
-            "name": "jay",
-            "parentID": "",
-            "time": "time"
-        },
-        "comment-2": {
-            "content": "i don't agree with you, i hated this article",
-            "dislikes": 2,
-            "id": "comment-2",
-            "likes": 1,
-            "name": "jay",
-            "parentID": "comment-1",
-            "time": "time"
-        }
+  "comments": {
+    "comment-1": {
+      "content": "loved this article",
+      "dislikes": 1,
+      "id": "comment-1",
+      "likes": 1,
+      "name": "jay",
+      "parentID": "",
+      "time": "time"
+    },
+    "comment-2": {
+      "content": "i don't agree with you, i hated this article",
+      "dislikes": 2,
+      "id": "comment-2",
+      "likes": 1,
+      "name": "jay",
+      "parentID": "comment-1",
+      "time": "time"
     }
+  }
 }
