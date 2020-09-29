@@ -1,4 +1,14 @@
 import React, { useState } from 'react';
+import { Form, Input, Button } from 'antd';
+
+const { TextArea } = Input;
+const layout = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 16 },
+};
+const tailLayout = {
+  wrapperCol: { offset: 4, span: 16 },
+};
 
 function CommentForm() {
   const [content, setContent] = useState("");
@@ -6,24 +16,42 @@ function CommentForm() {
 
   const handleSubmit = () => {
     fetch("http://localhost:5000/submitComment?name=" + name + "&content=" + content);
+    window.location.reload();
   }
 
   return (
     <div >
       <h2>Any thoughts?</h2>
-      <form onSubmit={() => handleSubmit()}>
-        <input
-          id="name"
-          onChange={e => setName(e.target.value)}
-          placeholder="Name"
-        ></input>
-        <input
-          id="content"
-          onChange={e => setContent(e.target.value)}
-          placeholder="Comment"
-        ></input>
-        <button type="submit">Comment</button>
-      </form>
+      <Form
+        {...layout}
+        onFinish={() => handleSubmit()}
+      >
+        <Form.Item
+          label="Name"
+          name="name"
+          rules={[{ required: true, message: 'Please input your name!' }]}
+        >
+          <Input
+            onChange={e => setName(e.target.value)}
+          />
+        </Form.Item>
+        <Form.Item
+          label="Comment"
+          name="comment"
+          rules={[{ required: true, message: 'Please input your comment!' }]}
+        >
+          <TextArea
+            rows={4}
+            id="content"
+            onChange={e => setContent(e.target.value)}
+          ></TextArea>
+        </Form.Item>
+        <Form.Item {...tailLayout}>
+          <Button type="primary" htmlType="submit">
+            Comment
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 }
