@@ -3,11 +3,11 @@ import { Form, Input, Button } from 'antd';
 
 const { TextArea } = Input;
 const layout = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 16 },
+  labelCol: { span: 2 },
+  wrapperCol: { span: 22 },
 };
 const tailLayout = {
-  wrapperCol: { offset: 4, span: 16 },
+  wrapperCol: { offset: 2, span: 22 },
 };
 
 function CommentForm() {
