@@ -4,7 +4,7 @@ import { Form, Input, Button } from 'antd';
 const { TextArea } = Input;
 const layout = {
   labelCol: { span: 2 },
-  wrapperCol: { span: 22 },
+  wrapperCol: { span: 20 },
 };
 const tailLayout = {
   wrapperCol: { offset: 2, span: 22 },

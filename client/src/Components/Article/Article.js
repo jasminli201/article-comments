@@ -17,10 +17,10 @@ function Article() {
           Lorem Ipsum
         </Title>
         <h3>
-          Written by
+          Written by: Vivamus Dapibus
         </h3>
         <h3>
-          Published
+          Published: 09/20/2020
         </h3>
         <Divider />
         <Paragraph>

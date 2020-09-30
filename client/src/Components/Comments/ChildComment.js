@@ -17,19 +17,10 @@ const ChildComment = ({ comment, allComments }) => {
   const [content, setContent] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const showModal = () => {
-    setVisible(true);
-  };
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
   // add filter to find child comments (if parentID matches the ID of the overall comment, then add to childComments)
   const childComments = () => allComments.filter(child => child.parentID === comment.id)
 
   const like = (id) => {
-    console.log("http://localhost:5000/updateAction?id=" + id + "&action=like");
     fetch("http://localhost:5000/updateAction?id=" + id + "&action=like");
     window.location.reload();
   };
@@ -53,7 +44,7 @@ const ChildComment = ({ comment, allComments }) => {
           <div>
             <p>{comment.content}</p>
             <div id="action">
-              <Button type="primary" onClick={showModal}>Reply</Button>
+              <Button type="primary" onClick={() => setVisible(true)}>Reply</Button>
               <Modal
                 title="Reply to"
                 visible={visible}
@@ -86,7 +77,7 @@ const ChildComment = ({ comment, allComments }) => {
                   </Form.Item>
                   <Form.Item {...tailLayout}>
                     <Button type="primary" htmlType="submit">
-                      Comment
+                      Reply
                     </Button>
                   </Form.Item>
                 </Form>
