@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd';
 const { Header } = Layout;
 
 function Navbar() {
-  const [current, setCurrent] = useState("");
+  const [current] = useState("");
 
   return (
     <Layout className="layout">

@@ -1,9 +1,11 @@
+// node backend express config
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(cors());
 
+// firebase config
 const firebase = require("firebase");
 const firebaseConfig = require("./firebase.json");
 firebase.initializeApp(firebaseConfig);
@@ -13,6 +15,7 @@ function getTime() {
   return currentDate;
 }
 
+// get all comments from newest to oldest
 app.get("/readAllComments", (req, res) => {
   var commentRef = firebase.database().ref('comments');
   commentRef.orderByChild("time").once("value", snapshot => {
@@ -41,6 +44,7 @@ app.get("/submitComment", (req, res) => {
   res.send("submitted");
 })
 
+// when submitting a reply, add the parentID
 app.get("/submitReply", (req, res) => {
   let reply = {
     content: req.query.content,
@@ -65,6 +69,7 @@ app.get("/getComment", (req, res) => {
   });
 })
 
+// for both liking and disliking, increment by 1
 app.get("/updateAction", (req, res) => {
   if (req.query.action == "like") {
     firebase.database()

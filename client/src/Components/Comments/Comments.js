@@ -28,13 +28,12 @@ function Comments() {
 
   return (
     <div>
-      {/* map through array of objects to display each comment and its childComments */}
-      {comments.map(comment => {
+      {/* map through array of objects to display each parent comment and its childComments */}
+      {/* considered a "parent comment" if nothing in the parendID field */}
+      {comments.map((comment) => {
         return (
-          comment.parentID == "" ? (
-            <div>
-              <ChildComment key={comment.id} comment={comment} allComments={comments} />
-            </div>
+          comment.parentID === "" ? (
+            <ChildComment key={comment.id} comment={comment} allComments={comments} />
           )
             : <div>
             </div>

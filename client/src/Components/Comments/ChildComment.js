@@ -15,16 +15,17 @@ const tailLayout = {
 const ChildComment = ({ comment, allComments }) => {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+  // visible is for the modal
   const [visible, setVisible] = useState(false);
 
   // add filter to find child comments (if parentID matches the ID of the overall comment, then add to childComments)
   const childComments = () => allComments.filter(child => child.parentID === comment.id)
 
+  // for like and dislike  
   const like = (id) => {
     fetch("http://localhost:5000/updateAction?id=" + id + "&action=like");
     window.location.reload();
   };
-
   const dislike = (id) => {
     fetch("http://localhost:5000/updateAction?id=" + id + "&action=dislike");
     window.location.reload();
@@ -39,7 +40,7 @@ const ChildComment = ({ comment, allComments }) => {
   return (
     <div>
       <Comment
-        author={<p>{comment.name}</p>}
+        author={<h3>{comment.name}</h3>}
         content={
           <div>
             <p>{comment.content}</p>
